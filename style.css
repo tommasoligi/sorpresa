@@ -15,6 +15,10 @@ body {
   overflow-x: hidden;
 }
 
+.container {
+  width: 100%;
+}
+
 .hidden {
   display: none !important;
 }
@@ -35,6 +39,7 @@ body {
   height: 30rem;
   margin-bottom: 2rem;
   border-radius: 20px;
+  object-fit: cover;
 }
 
 .title {
@@ -80,14 +85,15 @@ body {
 .roses-page {
   min-height: 100vh;
   width: 100%;
-  background: radial-gradient(circle at 20% 0%, #ff6b8f26 0, transparent 55%),
-              radial-gradient(circle at 80% 0%, #ff214426 0, transparent 55%),
-              linear-gradient(180deg, #050513, #14091b, #2b041b);
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  background:
+    radial-gradient(circle at 20% 0%, #ff6b8f26 0, transparent 55%),
+    radial-gradient(circle at 80% 0%, #ff214426 0, transparent 55%),
+    linear-gradient(180deg, #050513, #14091b, #2b041b);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+    sans-serif;
   color: #f7f0ff;
   position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 20px;
@@ -121,7 +127,11 @@ body {
 .gradient {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% -20%, #ff6b8f22 0, transparent 60%);
+  background: radial-gradient(
+    circle at 50% -20%,
+    #ff6b8f22 0,
+    transparent 60%
+  );
 }
 
 .header {
@@ -168,12 +178,17 @@ body {
   position: relative;
   flex: 1;
   height: 40px;
-  background: linear-gradient(90deg, transparent 0, #ffffff11 50%, transparent 100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0,
+    #ffffff11 50%,
+    transparent 100%
+  );
   border-radius: 40px;
   overflow: hidden;
 }
 
-/* ROSE PACKETS REALISTICHE */
+/* ROSE PACKETS */
 .rose-packet {
   position: absolute;
   top: 50%;
@@ -181,7 +196,13 @@ body {
   height: 22px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 20%, #ffe8f2 0, #ff8aaa 35%, #ff2b5c 65%, #7a041d 100%);
+  background: radial-gradient(
+    circle at 30% 20%,
+    #ffe8f2 0,
+    #ff8aaa 35%,
+    #ff2b5c 65%,
+    #7a041d 100%
+  );
   box-shadow: 0 0 14px rgba(255, 68, 122, 0.9);
   animation: packet-move 5s linear forwards;
   opacity: 0;
@@ -192,7 +213,12 @@ body {
   position: absolute;
   inset: -4px;
   border-radius: 50%;
-  background: radial-gradient(circle at 20% 20%, rgba(255, 217, 230, 0.85) 0, rgba(255, 107, 143, 0.25) 35%, transparent 70%);
+  background: radial-gradient(
+    circle at 20% 20%,
+    rgba(255, 217, 230, 0.85) 0,
+    rgba(255, 107, 143, 0.25) 35%,
+    transparent 70%
+  );
   opacity: 0.9;
 }
 
@@ -201,7 +227,12 @@ body {
   position: absolute;
   inset: 5px;
   border-radius: 50%;
-  background: conic-gradient(from 210deg, #ff466e 0 120deg, #ff8aaa 120deg 220deg, #990826 220deg 360deg);
+  background: conic-gradient(
+    from 210deg,
+    #ff466e 0 120deg,
+    #ff8aaa 120deg 220deg,
+    #990826 220deg 360deg
+  );
   mix-blend-mode: screen;
   opacity: 0.85;
 }
@@ -246,9 +277,18 @@ body {
 }
 
 @keyframes bouquet-pop {
-  0% { opacity: 0; transform: scale(0.8) translateY(20px) rotateX(10deg); }
-  60% { opacity: 1; transform: scale(1.05) translateY(0) rotateX(0deg); }
-  100% { opacity: 1; transform: scale(1) translateY(0) rotateX(0deg); }
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px) rotateX(10deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.05) translateY(0) rotateX(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0) rotateX(0deg);
+  }
 }
 
 .bouquet-shadow {
@@ -258,7 +298,11 @@ body {
   transform: translateX(-50%);
   width: 150px;
   height: 26px;
-  background: radial-gradient(circle at 50% 50%, #00000055 0, transparent 70%);
+  background: radial-gradient(
+    circle at 50% 50%,
+    #00000055 0,
+    transparent 70%
+  );
   filter: blur(4px);
 }
 
@@ -269,15 +313,22 @@ body {
   transform-style: preserve-3d;
 }
 
-/* FLOWERS REALISTICI */
 .flower {
   position: absolute;
   top: 30px;
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  background: radial-gradient(circle at 28% 18%, #ffeef7 0, #ff8aaa 25%, #ff2b5c 55%, #7a041d 95%);
-  box-shadow: 0 0 22px rgba(255, 68, 122, 0.9), 0 10px 18px rgba(0, 0, 0, 0.55);
+  background: radial-gradient(
+    circle at 28% 18%,
+    #ffeef7 0,
+    #ff8aaa 25%,
+    #ff2b5c 55%,
+    #7a041d 95%
+  );
+  box-shadow:
+    0 0 22px rgba(255, 68, 122, 0.9),
+    0 10px 18px rgba(0, 0, 0, 0.55);
 }
 
 .flower::before {
@@ -285,7 +336,12 @@ body {
   position: absolute;
   inset: 4px;
   border-radius: 50%;
-  background: conic-gradient(from 210deg, #ff466e 0 120deg, #ff8aaa 120deg 220deg, #990826 220deg 360deg);
+  background: conic-gradient(
+    from 210deg,
+    #ff466e 0 120deg,
+    #ff8aaa 120deg 220deg,
+    #990826 220deg 360deg
+  );
   opacity: 0.95;
 }
 
@@ -294,7 +350,12 @@ body {
   position: absolute;
   inset: 18px;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 20%, #ffeef6 0, #ff8aaa 35%, #7a041d 100%);
+  background: radial-gradient(
+    circle at 30% 20%,
+    #ffeef6 0,
+    #ff8aaa 35%,
+    #7a041d 100%
+  );
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
 }
 
@@ -323,7 +384,9 @@ body {
   transform: translateX(-50%);
   background: linear-gradient(180deg, #1bbf68 0, #0b7c42 60%, #064326 100%);
   border-radius: 999px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.7), 0 10px 14px rgba(0, 0, 0, 0.7);
+  box-shadow:
+    0 0 8px rgba(0, 0, 0, 0.7),
+    0 10px 14px rgba(0, 0, 0, 0.7);
 }
 
 /* LEAVES */
@@ -384,7 +447,12 @@ body {
   border-radius: 80px 0 20px 80px;
   transform-origin: bottom left;
   transform: skewX(-10deg);
-  background: linear-gradient(135deg, #fbe6d9 0, #f0d1c0 45%, #d0b5a3 100%);
+  background: linear-gradient(
+    135deg,
+    #fbe6d9 0,
+    #f0d1c0 45%,
+    #d0b5a3 100%
+  );
 }
 
 .wrap-right {
@@ -392,7 +460,12 @@ body {
   border-radius: 0 80px 80px 20px;
   transform-origin: bottom right;
   transform: skewX(10deg);
-  background: linear-gradient(225deg, #fbe6d9 0, #f0d1c0 45%, #d0b5a3 100%);
+  background: linear-gradient(
+    225deg,
+    #fbe6d9 0,
+    #f0d1c0 45%,
+    #d0b5a3 100%
+  );
 }
 
 .ribbon {
@@ -404,7 +477,9 @@ body {
   height: 18px;
   background: linear-gradient(90deg, #ff2144, #ff6b8f);
   border-radius: 999px;
-  box-shadow: 0 0 12px rgba(255, 33, 68, 0.8), 0 6px 10px rgba(0, 0, 0, 0.6);
+  box-shadow:
+    0 0 12px rgba(255, 33, 68, 0.8),
+    0 6px 10px rgba(0, 0, 0, 0.6);
 }
 
 /* CAPTION */
