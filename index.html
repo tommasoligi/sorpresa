@@ -56,57 +56,93 @@
         </div>
       </section>
 
-      <section class="scene">
-        <div class="bouquet-wrapper" id="bouquetWrapper">
-          <div class="bouquet-shadow"></div>
-          <div class="bouquet">
-            <div class="stem"></div>
-            <div class="stem stem-back"></div>
+<section class="scene">
+  <div class="ground"></div>
 
-            <div class="leaf leaf-left"></div>
-            <div class="leaf leaf-right"></div>
-            <div class="leaf leaf-back-left"></div>
-            <div class="leaf leaf-back-right"></div>
+  <div class="bouquet-wrapper" id="bouquetWrapper">
+    <div class="bouquet-shadow"></div>
 
-            <!-- Petali più realistici: ogni fiore ha vari petali -->
-            <div class="flower flower--left">
-              <div class="petal petal-1"></div>
-              <div class="petal petal-2"></div>
-              <div class="petal petal-3"></div>
-              <div class="petal petal-4"></div>
-              <div class="petal petal-inner"></div>
-              <div class="center"></div>
-            </div>
+    <div class="bouquet">
+      <!-- Gambi principali -->
+      <div class="stem stem-main"></div>
+      <div class="stem stem-left"></div>
+      <div class="stem stem-right"></div>
 
-            <div class="flower flower--center">
-              <div class="petal petal-1"></div>
-              <div class="petal petal-2"></div>
-              <div class="petal petal-3"></div>
-              <div class="petal petal-4"></div>
-              <div class="petal petal-inner"></div>
-              <div class="center"></div>
-            </div>
+      <!-- Foglie principali -->
+      <div class="leaf leaf-main-left"></div>
+      <div class="leaf leaf-main-right"></div>
+      <div class="leaf leaf-back-left"></div>
+      <div class="leaf leaf-back-right"></div>
 
-            <div class="flower flower--right">
-              <div class="petal petal-1"></div>
-              <div class="petal petal-2"></div>
-              <div class="petal petal-3"></div>
-              <div class="petal petal-4"></div>
-              <div class="petal petal-inner"></div>
-              <div class="center"></div>
-            </div>
-
-            <div class="wrap">
-              <div class="wrap-left"></div>
-              <div class="wrap-right"></div>
-              <div class="wrap-highlight"></div>
-              <div class="ribbon"></div>
-              <div class="ribbon-tail ribbon-tail-left"></div>
-              <div class="ribbon-tail ribbon-tail-right"></div>
-            </div>
-          </div>
+      <!-- Fiore sinistro -->
+      <div class="flower flower--left">
+        <div class="petal-ring petal-ring-back">
+          <div class="petal big-petal"></div>
+          <div class="petal big-petal"></div>
+          <div class="petal big-petal"></div>
+          <div class="petal big-petal"></div>
         </div>
-      </section>
+        <div class="petal-ring petal-ring-front">
+          <div class="petal mid-petal"></div>
+          <div class="petal mid-petal"></div>
+          <div class="petal mid-petal"></div>
+          <div class="petal mid-petal"></div>
+        </div>
+        <div class="petal-core">
+          <div class="core-glow"></div>
+        </div>
+      </div>
+
+      <!-- Fiore centrale -->
+      <div class="flower flower--center">
+        <div class="petal-ring petal-ring-back">
+          <div class="petal big-petal"></div>
+          <div class="petal big-petal"></div>
+          <div class="petal big-petal"></div>
+          <div class="petal big-petal"></div>
+        </div>
+        <div class="petal-ring petal-ring-front">
+          <div class="petal mid-petal"></div>
+          <div class="petal mid-petal"></div>
+          <div class="petal mid-petal"></div>
+          <div class="petal mid-petal"></div>
+        </div>
+        <div class="petal-core">
+          <div class="core-glow"></div>
+        </div>
+      </div>
+
+      <!-- Fiore destro -->
+      <div class="flower flower--right">
+        <div class="petal-ring petal-ring-back">
+          <div class="petal big-petal"></div>
+          <div class="petal big-petal"></div>
+          <div class="petal big-petal"></div>
+          <div class="petal big-petal"></div>
+        </div>
+        <div class="petal-ring petal-ring-front">
+          <div class="petal mid-petal"></div>
+          <div class="petal mid-petal"></div>
+          <div class="petal mid-petal"></div>
+          <div class="petal mid-petal"></div>
+        </div>
+        <div class="petal-core">
+          <div class="core-glow"></div>
+        </div>
+      </div>
+
+      <!-- Carta del bouquet -->
+      <div class="wrap">
+        <div class="wrap-left"></div>
+        <div class="wrap-right"></div>
+        <div class="wrap-highlight"></div>
+        <div class="ribbon"></div>
+        <div class="ribbon-tail ribbon-tail-left"></div>
+        <div class="ribbon-tail ribbon-tail-right"></div>
+      </div>
+    </div>
+  </div>
+</section>
 
       <section class="caption">
         <p id="captionText">Invio in corso: le rose stanno attraversando l'oceano...</p>
