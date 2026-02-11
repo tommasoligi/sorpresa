@@ -421,3 +421,44 @@ body {
   .bouquet-wrapper{width:230px;height:240px;}
   .bouquet{width:210px;height:240px;}
 }
+/* Loading per transizione Yes */
+.loading-title {
+  color: #40c057 !important;
+  font-size: 2.4rem !important;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.loading-bar {
+  width: 280px;
+  height: 8px;
+  background: rgba(255,255,255,.3);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.loading-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #40c057, #52de97);
+  border-radius: 4px;
+  width: 0;
+  animation: loading-fill 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes loading-fill {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+/* Nascondi roses container inizialmente */
+.roses-container {
+  opacity: 0;
+  display: none;
+  transition: opacity 0.8s;
+}
+
