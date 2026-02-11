@@ -32,30 +32,31 @@ noButton.addEventListener("click", function () {
 });
 
 function handleYesClick() {
-  // Nascondi bottoni e mostra loading
-  buttonsContainer.classList.add("hidden");
+  // Cambia titolo e nascondi bottoni
   titleElement.innerHTML = "Preparando il tuo regalo speciale...";
-  titleElement.classList.add("loading-title");
+  buttonsContainer.classList.add("hidden");
   
-  // Barra di caricamento
-  const loadingBar = document.createElement("div");
-  loadingBar.className = "loading-bar";
-  loadingBar.innerHTML = `
-    <div class="loading-progress"></div>
-  `;
-  valentineContainer.appendChild(loadingBar);
-  
-  // Avvia animazione loading
+  // Avvia roses DOPO 2.5s esatti
   setTimeout(() => {
-    showRoses();
+    transitionToRoses();
   }, 2500);
 }
 
-function showRoses() {
-  valentineContainer.style.opacity = "0";
-  valentineContainer.style.transition = "opacity 0.8s";
-  rosesContainer.style.opacity = "1";
-  rosesContainer.style.display = "block";
+function transitionToRoses() {
+  // Nascondi valentine e mostra roses
+  valentineContainer.style.display = "none";
+  rosesContainer.classList.remove("hidden");
+  rosesContainer.style.display = "flex";
+  
+  // Avvia animazione packets dopo 500ms (tempo per render)
+  setTimeout(() => {
+    restartPackets();
+  }, 500);
+  
+  // Avvia bouquet dopo il viaggio completo
+  setTimeout(() => {
+    showBouquet();
+  }, 500 + 7300); // 500ms render + 7.3s viaggio
 }
 
 function resizeYesButton() {
@@ -87,16 +88,7 @@ function updateNoButtonText() {
 }
 
 // ROSA LOGIC
-const TOTAL_SEND_MS = 5000 + 1800 + 500;
 const packets = document.querySelectorAll(".rose-packet");
-
-function showBouquet() {
-  if (!bouquetWrapper) return;
-  bouquetWrapper.classList.add("bouquet-visible");
-  if (captionText) {
-    captionText.textContent = "Consegnato: il tuo bouquet è arrivato a Buenos Aires. Ti amo ❤️";
-  }
-}
 
 function restartPackets() {
   packets.forEach(p => {
@@ -106,8 +98,10 @@ function restartPackets() {
   });
 }
 
-// Avvia animazione rose dopo che il container è visibile
-setTimeout(() => {
-  restartPackets();
-  setTimeout(showBouquet, TOTAL_SEND_MS);
-}, 3500);
+function showBouquet() {
+  if (!bouquetWrapper) return;
+  bouquetWrapper.classList.add("bouquet-visible");
+  if (captionText) {
+    captionText.textContent = "Consegnato: il tuo bouquet è arrivato! Ti amo ❤️";
+  }
+}
