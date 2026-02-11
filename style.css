@@ -584,7 +584,45 @@ body {
     #7a041d 100%
   );
 }
+/* Rosa central ligeramente más grande y con más movimiento */
+.flower--center {
+  left: 50%;
+  transform: translateX(-50%) scale(1.05);
+  animation-duration: 4.6s;
+}
 
+/* Un anillo extra interno solo para la flor central (ligero brillo) */
+.flower--center .petal-core::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 20%,
+    #fff5fa 0,
+    #ffcadb 40%,
+    transparent 80%
+  );
+  mix-blend-mode: screen;
+  opacity: 0.7;
+}
+
+/* Pequeños pétalos “cerrados” dentro del núcleo de la flor central */
+.flower--center .petal-core::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  width: 28px;
+  height: 28px;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  border-radius: 60% 60% 50% 50%;
+  background: radial-gradient(circle at 20% 0%,
+    #ffeef7 0,
+    #ff94b6 35%,
+    #b50936 90%
+  );
+  box-shadow: 0 0 8px rgba(255, 68, 122, 0.8);
+}
 .wrap-left,
 .wrap-right {
   position: absolute;
