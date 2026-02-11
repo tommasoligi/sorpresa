@@ -1,4 +1,4 @@
-/* VALENTINE ORIGINALE */
+/* RESET E BASE */
 * {
   margin: 0;
   padding: 0;
@@ -12,21 +12,29 @@ html {
 body {
   background-color: #fff0f6;
   font-family: "Protest Riot", sans-serif;
+  overflow-x: hidden;
 }
 
-.container {
+.hidden {
+  display: none !important;
+}
+
+/* ========== VALENTINE PAGE ========== */
+.valentine-page {
   height: 100vh;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #fff0f6;
 }
 
 .cat-img {
   width: 30rem;
   height: 30rem;
   margin-bottom: 2rem;
+  border-radius: 20px;
 }
 
 .title {
@@ -53,7 +61,7 @@ body {
   font-weight: 600;
   cursor: pointer;
   display: inline-block;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 .btn:hover {
@@ -68,29 +76,35 @@ body {
   background-color: #f03e3e;
 }
 
-.hidden {
-  display: none !important;
-}
-
-/* ROSE SECTION */
-.roses-section {
+/* ========== ROSES PAGE ========== */
+.roses-page {
+  min-height: 100vh;
+  width: 100%;
   background: radial-gradient(circle at 20% 0%, #ff6b8f26 0, transparent 55%),
               radial-gradient(circle at 80% 0%, #ff214426 0, transparent 55%),
-              linear-gradient(180deg,#050513,#14091b,#2b041b);
-  font-family: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+              linear-gradient(180deg, #050513, #14091b, #2b041b);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   color: #f7f0ff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
-.roses-section .container {
+.roses-content {
+  width: 100%;
+  max-width: 900px;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .sky {
   pointer-events: none;
   position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: 1;
 }
 
 .stars {
@@ -101,7 +115,7 @@ body {
     radial-gradient(1px 1px at 30% 80%, #ffffff66 0, transparent 50%),
     radial-gradient(1px 1px at 60% 30%, #ffffff66 0, transparent 50%),
     radial-gradient(1px 1px at 90% 60%, #ffffff66 0, transparent 50%);
-  opacity: .7;
+  opacity: 0.7;
 }
 
 .gradient {
@@ -116,22 +130,24 @@ body {
 }
 
 .header h1 {
-  font-size: clamp(28px,4vw,40px);
-  text-shadow: 0 0 30px rgba(255,68,122,.65);
+  font-size: clamp(28px, 4vw, 40px);
+  text-shadow: 0 0 30px rgba(255, 68, 122, 0.65);
+  margin-bottom: 10px;
 }
 
 .header p {
   margin-top: 8px;
   color: #ccb7dd;
+  font-size: 1.8rem;
 }
 
+/* ROUTE */
 .route {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
   padding: 12px 16px 0;
-  max-width: 900px;
   width: 100%;
 }
 
@@ -140,12 +156,12 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  font-size: 13px;
+  font-size: 1.4rem;
   color: #ccb7dd;
 }
 
 .flag {
-  font-size: 20px;
+  font-size: 2.4rem;
 }
 
 .route-track {
@@ -157,7 +173,7 @@ body {
   overflow: hidden;
 }
 
-/* ROSE PACCHETTI REALISTICHE */
+/* ROSE PACKETS REALISTICHE */
 .rose-packet {
   position: absolute;
   top: 50%;
@@ -165,9 +181,8 @@ body {
   height: 22px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background:
-    radial-gradient(circle at 30% 20%, #ffe8f2 0, #ff8aaa 35%, #ff2b5c 65%, #7a041d 100%);
-  box-shadow: 0 0 14px rgba(255,68,122,.9);
+  background: radial-gradient(circle at 30% 20%, #ffe8f2 0, #ff8aaa 35%, #ff2b5c 65%, #7a041d 100%);
+  box-shadow: 0 0 14px rgba(255, 68, 122, 0.9);
   animation: packet-move 5s linear forwards;
   opacity: 0;
 }
@@ -177,9 +192,249 @@ body {
   position: absolute;
   inset: -4px;
   border-radius: 50%;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(255,217,230,.85) 0, rgba(255,107,143,.25) 35%, transparent 70%);
-  opacity: .9;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 217, 230, 0.85) 0, rgba(255, 107, 143, 0.25) 35%, transparent 70%);
+  opacity: 0.9;
 }
 
-.rose-packet::after
+.rose-packet::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  background: conic-gradient(from 210deg, #ff466e 0 120deg, #ff8aaa 120deg 220deg, #990826 220deg 360deg);
+  mix-blend-mode: screen;
+  opacity: 0.85;
+}
+
+.rose-packet--1 { animation-delay: 0s; }
+.rose-packet--2 { animation-delay: 0.6s; }
+.rose-packet--3 { animation-delay: 1.2s; }
+.rose-packet--4 { animation-delay: 1.8s; }
+.rose-packet--5 { animation-delay: 2.4s; }
+
+@keyframes packet-move {
+  0% { left: 0%; opacity: 0; }
+  5% { opacity: 1; }
+  90% { left: 100%; opacity: 1; }
+  100% { left: 110%; opacity: 0; }
+}
+
+/* SCENE */
+.scene {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 320px;
+  margin-top: 24px;
+}
+
+.bouquet-wrapper {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  opacity: 0;
+  transform: scale(0.8) translateY(20px);
+  pointer-events: none;
+}
+
+.bouquet-wrapper.bouquet-visible {
+  animation: bouquet-pop 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes bouquet-pop {
+  0% { opacity: 0; transform: scale(0.8) translateY(20px) rotateX(10deg); }
+  60% { opacity: 1; transform: scale(1.05) translateY(0) rotateX(0deg); }
+  100% { opacity: 1; transform: scale(1) translateY(0) rotateX(0deg); }
+}
+
+.bouquet-shadow {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 26px;
+  background: radial-gradient(circle at 50% 50%, #00000055 0, transparent 70%);
+  filter: blur(4px);
+}
+
+.bouquet {
+  position: relative;
+  width: 220px;
+  height: 260px;
+  transform-style: preserve-3d;
+}
+
+/* FLOWERS REALISTICI */
+.flower {
+  position: absolute;
+  top: 30px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 28% 18%, #ffeef7 0, #ff8aaa 25%, #ff2b5c 55%, #7a041d 95%);
+  box-shadow: 0 0 22px rgba(255, 68, 122, 0.9), 0 10px 18px rgba(0, 0, 0, 0.55);
+}
+
+.flower::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: conic-gradient(from 210deg, #ff466e 0 120deg, #ff8aaa 120deg 220deg, #990826 220deg 360deg);
+  opacity: 0.95;
+}
+
+.flower::after {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 20%, #ffeef6 0, #ff8aaa 35%, #7a041d 100%);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+.flower--center {
+  left: 50%;
+  transform: translateX(-50%) translateY(2px);
+}
+
+.flower--left {
+  left: 28%;
+  transform: translateX(-50%) translateY(14px) scale(0.92);
+}
+
+.flower--right {
+  left: 72%;
+  transform: translateX(-50%) translateY(14px) scale(0.92);
+}
+
+/* STEM */
+.stem {
+  position: absolute;
+  bottom: 38px;
+  left: 50%;
+  width: 9px;
+  height: 138px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, #1bbf68 0, #0b7c42 60%, #064326 100%);
+  border-radius: 999px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.7), 0 10px 14px rgba(0, 0, 0, 0.7);
+}
+
+/* LEAVES */
+.leaf {
+  position: absolute;
+  width: 42px;
+  height: 24px;
+  background: linear-gradient(135deg, #52e28c, #15a155);
+  border-radius: 80% 0 80% 0;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.45);
+}
+
+.leaf::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 4px;
+  width: 2px;
+  height: 16px;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.22);
+  border-radius: 999px;
+}
+
+.leaf-left {
+  left: 46%;
+  top: 150px;
+  transform: translateX(-50%) rotate(-30deg);
+}
+
+.leaf-right {
+  left: 54%;
+  top: 162px;
+  transform: translateX(-50%) rotate(30deg) scaleX(-1);
+}
+
+/* WRAP */
+.wrap {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 170px;
+  height: 120px;
+}
+
+.wrap-left,
+.wrap-right {
+  position: absolute;
+  bottom: 0;
+  width: 50%;
+  height: 100%;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.55);
+}
+
+.wrap-left {
+  left: 0;
+  border-radius: 80px 0 20px 80px;
+  transform-origin: bottom left;
+  transform: skewX(-10deg);
+  background: linear-gradient(135deg, #fbe6d9 0, #f0d1c0 45%, #d0b5a3 100%);
+}
+
+.wrap-right {
+  right: 0;
+  border-radius: 0 80px 80px 20px;
+  transform-origin: bottom right;
+  transform: skewX(10deg);
+  background: linear-gradient(225deg, #fbe6d9 0, #f0d1c0 45%, #d0b5a3 100%);
+}
+
+.ribbon {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 18px;
+  background: linear-gradient(90deg, #ff2144, #ff6b8f);
+  border-radius: 999px;
+  box-shadow: 0 0 12px rgba(255, 33, 68, 0.8), 0 6px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* CAPTION */
+.caption {
+  margin-top: 26px;
+  text-align: center;
+}
+
+.caption p {
+  color: #ccb7dd;
+  max-width: 540px;
+  margin: 0 auto;
+  font-size: 1.6rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 650px) {
+  .route {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .route-track {
+    width: 100%;
+  }
+  .bouquet-wrapper {
+    width: 230px;
+    height: 240px;
+  }
+  .bouquet {
+    width: 210px;
+    height: 240px;
+  }
+}
