@@ -436,7 +436,9 @@ body {
   opacity: 0.7;
 }
 
-/* FIORI – ESSEMPIO DI ROSA PIÙ REALISTICA A PETALI */
+/* FLORES (ROSAS) CON PÉTALOS REALISTAS */
+
+/* Cada flor “nace” desde el tallo y se mueve un poco */
 .flower {
   position: absolute;
   width: 90px;
@@ -446,7 +448,7 @@ body {
   animation: flower-sway 4s ease-in-out infinite alternate;
 }
 
-/* Ondeggiamento delicato */
+/* Movimiento suave de las rosas */
 @keyframes flower-sway {
   0% {
     transform: translateX(-50%) translateY(4px) rotate(-2deg);
@@ -460,18 +462,20 @@ body {
   left: 50%;
   transform: translateX(-50%);
 }
+
 .flower--left {
   left: 28%;
   transform: translateX(-50%) translateY(8px) scale(0.9);
   animation-delay: 0.2s;
 }
+
 .flower--right {
   left: 72%;
   transform: translateX(-50%) translateY(8px) scale(0.9);
   animation-delay: 0.4s;
 }
 
-/* Anelli di petali */
+/* Anillos de pétalos (fondo + frente) */
 .petal-ring {
   position: absolute;
   width: 100%;
@@ -480,58 +484,77 @@ body {
   top: 0;
 }
 
+/* Pétalo base */
 .petal {
   position: absolute;
   width: 54px;
   height: 76px;
   border-radius: 70% 70% 55% 55%;
-  background: radial-gradient(circle at 25% 0%, #ffeef7 0, #ff9ab9 35%, #ff2f5f 70%, #6a0218 100%);
+  background: radial-gradient(circle at 25% 0%,
+    #ffeef7 0,
+    #ff9ab9 35%,
+    #ff2f5f 70%,
+    #6a0218 100%
+  );
   box-shadow:
     0 4px 10px rgba(0, 0, 0, 0.6),
     0 0 20px rgba(255, 68, 122, 0.75);
   transform-origin: 50% 90%;
 }
 
-/* Petali esterni più grandi */
+/* Pétalos exteriores grandes */
 .big-petal {
   top: 22%;
   left: 50%;
 }
+
 .petal-ring-back .big-petal:nth-child(1) {
   transform: translateX(-50%) rotate(-40deg);
 }
+
 .petal-ring-back .big-petal:nth-child(2) {
   transform: translateX(-50%) rotate(-10deg);
 }
+
 .petal-ring-back .big-petal:nth-child(3) {
   transform: translateX(-50%) rotate(20deg);
 }
+
 .petal-ring-back .big-petal:nth-child(4) {
   transform: translateX(-50%) rotate(50deg);
 }
 
-/* Petali intermedi leggermente più piccoli */
+/* Pétalos intermedios un poco más pequeños */
 .mid-petal {
   top: 26%;
   left: 50%;
   width: 46px;
   height: 66px;
-  background: radial-gradient(circle at 25% 0%, #ffeef7 0, #ffb4c9 40%, #d61646 80%, #5a0216 100%);
+  background: radial-gradient(circle at 25% 0%,
+    #ffeef7 0,
+    #ffb4c9 40%,
+    #d61646 80%,
+    #5a0216 100%
+  );
 }
+
 .petal-ring-front .mid-petal:nth-child(1) {
   transform: translateX(-50%) rotate(-30deg);
 }
+
 .petal-ring-front .mid-petal:nth-child(2) {
   transform: translateX(-50%) rotate(-5deg);
 }
+
 .petal-ring-front .mid-petal:nth-child(3) {
   transform: translateX(-50%) rotate(20deg);
 }
+
 .petal-ring-front .mid-petal:nth-child(4) {
   transform: translateX(-50%) rotate(45deg);
 }
 
-/* Nucleo centrale della rosa */
+/* Centro de la rosa */
 .petal-core {
   position: absolute;
   left: 50%;
@@ -540,7 +563,11 @@ body {
   height: 44px;
   transform: translateX(-50%);
   border-radius: 50%;
-  background: conic-gradient(from 200deg, #ff5b7f 0 120deg, #ff8aaa 120deg 210deg, #8c0622 210deg 360deg);
+  background: conic-gradient(from 200deg,
+    #ff5b7f 0 120deg,
+    #ff8aaa 120deg 210deg,
+    #8c0622 210deg 360deg
+  );
   box-shadow:
     0 0 10px rgba(0, 0, 0, 0.8),
     0 0 18px rgba(255, 68, 122, 0.8);
@@ -551,17 +578,11 @@ body {
   position: absolute;
   inset: 6px;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 20%, #ffeef7 0, #ffb5c7 35%, #7a041d 100%);
-}
-
-/* CARTA DEL BOUQUET */
-.wrap {
-  position: absolute;
-  bottom: 40px; /* allineata alla ground */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 180px;
-  height: 120px;
+  background: radial-gradient(circle at 30% 20%,
+    #ffeef7 0,
+    #ffb5c7 35%,
+    #7a041d 100%
+  );
 }
 
 .wrap-left,
