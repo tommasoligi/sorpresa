@@ -1,86 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <title>Valentine</title>
-  </head>
-  <body>
-    <!-- Sezione iniziale Valentine -->
-    <main class="container valentine-section" id="valentineSection">
-      <img class="cat-img" src="img/cat-0.jpg" alt="Picture of a cat" />
-      <p class="title">Will you be my Valentine?</p>
-      <div class="buttons">
-        <button type="button" class="btn btn--yes">Yes</button>
-        <button type="button" class="btn btn--no">No</button>
-      </div>
-    </main>
+"use strict";
 
-    <!-- Sezione rose (nascosta inizialmente) -->
-    <main class="container roses-section hidden" id="rosesSection">
-      <div class="sky">
-        <div class="stars"></div>
-        <div class="gradient"></div>
-      </div>
+const titleElement = document.querySelector(".title");
+const buttonsContainer = document.querySelector(".buttons");
+const yesButton = document.querySelector(".btn--yes");
+const noButton = document.querySelector(".btn--no");
+const catImg = document.querySelector(".cat-img");
 
-      <header class="header">
-        <h1>🌹 Rose a Distanza 🌹</h1>
-        <p>Per te, dall'Italia a Buenos Aires ❤️</p>
-      </header>
+const valentinePage = document.getElementById("valentinePage");
+const rosesPage = document.getElementById("rosesPage");
+const bouquetWrapper = document.getElementById("bouquetWrapper");
+const captionText = document.getElementById("captionText");
 
-      <section class="route">
-        <div class="route-label route-label--left">
-          <span class="flag">🇮🇹</span>
-          <span>Pesaro</span>
-        </div>
+const MAX_IMAGES = 5;
 
-        <div class="route-track">
-          <div class="rose-packet rose-packet--1"></div>
-          <div class="rose-packet rose-packet--2"></div>
-          <div class="rose-packet rose-packet--3"></div>
-          <div class="rose-packet rose-packet--4"></div>
-          <div class="rose-packet rose-packet--5"></div>
-        </div>
+let play = true;
+let noCount = 0;
 
-        <div class="route-label route-label--right">
-          <span class="flag">🇦🇷</span>
-          <span>Buenos Aires</span>
-        </div>
-      </section>
+yesButton.addEventListener("click", handleYesClick);
 
-      <section class="scene">
-        <div class="bouquet-wrapper" id="bouquetWrapper">
-          <div class="bouquet-shadow"></div>
-          <div class="bouquet">
-            <div class="stem"></div>
-            <div class="leaf leaf-left"></div>
-            <div class="leaf leaf-right"></div>
+noButton.addEventListener("click", function () {
+  if (play) {
+    noCount++;
+    const imageIndex = Math.min(noCount, MAX_IMAGES);
+    changeImage(imageIndex);
+    resizeYesButton();
+    updateNoButtonText();
+    if (noCount === MAX_IMAGES) {
+      play = false;
+    }
+  }
+});
 
-            <div class="flower flower--left"></div>
-            <div class="flower flower--center"></div>
-            <div class="flower flower--right"></div>
+function handleYesClick() {
+  buttonsContainer.classList.add("hidden");
+  titleElement.innerHTML = "Preparando il tuo regalo speciale...";
+  
+  setTimeout(() => {
+    valentinePage.classList.add("hidden");
+    rosesPage.classList.remove("hidden");
+    
+    setTimeout(() => {
+      restartPackets();
+      setTimeout(() => {
+        showBouquet();
+      }, 7300);
+    }, 500);
+  }, 2500);
+}
 
-            <div class="wrap">
-              <div class="wrap-left"></div>
-              <div class="wrap-right"></div>
-              <div class="ribbon"></div>
-            </div>
-          </div>
-        </div>
-      </section>
+function resizeYesButton() {
+  const computedStyle = window.getComputedStyle(yesButton);
+  const fontSize = parseFloat(computedStyle.getPropertyValue("font-size"));
+  const newFontSize = fontSize * 1.6;
+  yesButton.style.fontSize = `${newFontSize}px`;
+}
 
-      <section class="caption">
-        <p id="captionText">Invio in corso: le rose stanno attraversando l'oceano...</p>
-      </section>
-    </main>
+function generateMessage(noCount) {
+  const messages = [
+    "No",
+    "Are you sure?",
+    "Pookie please",
+    "Don't do this to me :(",
+    "You're breaking my heart",
+    "I'm gonna cry...",
+  ];
+  const messageIndex = Math.min(noCount, messages.length - 1);
+  return messages[messageIndex];
+}
 
-    <script type="module" src="script.js"></script>
-  </body>
-</html>
+function changeImage(image) {
+  catImg.src = `img/cat-${image}.jpg`;
+}
+
+function updateNoButtonText() {
+  noButton.innerHTML = generateMessage(noCount);
+}
+
+const packets = document.querySelectorAll(".rose-packet");
+
+function restartPackets() {
+  packets.forEach(p => {
+    p.style.animation = "none";
+    void p.offsetHeight;
+    p.style.animation = "";
+  });
+}
+
+function showBouquet() {
+  if (bouquetWrapper) {
+    bouquetWrapper.classList.add("bouquet-visible");
+  }
+  if (captionText) {
+    captionText.textContent = "Consegnato: il tuo bouquet è arrivato! Ti amo ❤️";
+  }
+}
