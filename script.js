@@ -7,7 +7,7 @@ const noButton = document.querySelector(".btn--no");
 const catImg = document.querySelector(".cat-img");
 
 const valentineContainer = document.getElementById("valentineContainer");
-const rosesContainer = document.getElementById("rosesContainer");
+const rosesContainer = document.getElementById("rosesSection");
 const bouquetWrapper = document.getElementById("bouquetWrapper");
 const captionText = document.getElementById("captionText");
 
@@ -32,31 +32,28 @@ noButton.addEventListener("click", function () {
 });
 
 function handleYesClick() {
-  // Cambia titolo e nascondi bottoni
-  titleElement.innerHTML = "Preparando il tuo regalo speciale...";
+  console.log("Yes clicked - starting roses"); // DEBUG
+  
   buttonsContainer.classList.add("hidden");
+  titleElement.innerHTML = "Preparando il tuo regalo speciale...";
   
-  // Avvia roses DOPO 2.5s esatti
+  // 2.5s dopo, forza transizione
   setTimeout(() => {
-    transitionToRoses();
+    if (valentineContainer && rosesContainer) {
+      valentineContainer.style.display = "none";
+      rosesContainer.classList.remove("hidden");
+      rosesContainer.style.display = "flex";
+      console.log("Roses container activated"); // DEBUG
+      
+      // Avvia animazioni dopo 300ms
+      setTimeout(() => {
+        restartPackets();
+        setTimeout(() => {
+          showBouquet();
+        }, 7300);
+      }, 300);
+    }
   }, 2500);
-}
-
-function transitionToRoses() {
-  // Nascondi valentine e mostra roses
-  valentineContainer.style.display = "none";
-  rosesContainer.classList.remove("hidden");
-  rosesContainer.style.display = "flex";
-  
-  // Avvia animazione packets dopo 500ms (tempo per render)
-  setTimeout(() => {
-    restartPackets();
-  }, 500);
-  
-  // Avvia bouquet dopo il viaggio completo
-  setTimeout(() => {
-    showBouquet();
-  }, 500 + 7300); // 500ms render + 7.3s viaggio
 }
 
 function resizeYesButton() {
@@ -68,15 +65,10 @@ function resizeYesButton() {
 
 function generateMessage(noCount) {
   const messages = [
-    "No",
-    "Are you sure?",
-    "Pookie please",
-    "Don't do this to me :(",
-    "You're breaking my heart",
-    "I'm gonna cry...",
+    "No", "Are you sure?", "Pookie please", "Don't do this to me :(",
+    "You're breaking my heart", "I'm gonna cry..."
   ];
-  const messageIndex = Math.min(noCount, messages.length - 1);
-  return messages[messageIndex];
+  return messages[Math.min(noCount, messages.length - 1)];
 }
 
 function changeImage(image) {
@@ -87,20 +79,23 @@ function updateNoButtonText() {
   noButton.innerHTML = generateMessage(noCount);
 }
 
-// ROSA LOGIC
+// ROSA ANIMATIONS
 const packets = document.querySelectorAll(".rose-packet");
 
 function restartPackets() {
+  console.log("Restarting packets"); // DEBUG
   packets.forEach(p => {
     p.style.animation = "none";
-    void p.offsetWidth;
+    p.offsetHeight; // Force reflow
     p.style.animation = "";
   });
 }
 
 function showBouquet() {
-  if (!bouquetWrapper) return;
-  bouquetWrapper.classList.add("bouquet-visible");
+  console.log("Showing bouquet"); // DEBUG
+  if (bouquetWrapper) {
+    bouquetWrapper.classList.add("bouquet-visible");
+  }
   if (captionText) {
     captionText.textContent = "Consegnato: il tuo bouquet è arrivato! Ti amo ❤️";
   }
