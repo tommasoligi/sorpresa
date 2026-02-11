@@ -287,16 +287,31 @@ body {
   100% { left: 120%; opacity: 0; transform: translate(-50%, -40%) scale(0.9); }
 }
 
-/* SCENE */
+/* SCENA E “TERRA” */
 .scene {
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 320px;
-  margin-top: 24px;
+  align-items: flex-end;
+  min-height: 340px;
+  margin-top: 40px;
 }
 
+/* linea di terra da cui sbucano le rose */
+.ground {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 260px;
+  height: 4px;
+  background: radial-gradient(circle at 50% 0, #2c1b33 0, transparent 70%);
+  box-shadow:
+    0 0 14px rgba(0, 0, 0, 0.7),
+    0 -6px 18px rgba(0, 0, 0, 0.9);
+}
+
+/* BOUQUET */
 .bouquet-wrapper {
   position: relative;
   width: 260px;
@@ -305,128 +320,140 @@ body {
   justify-content: center;
   align-items: flex-end;
   opacity: 0;
-  transform: scale(0.8) translateY(20px);
+  transform: translateY(60px) scale(0.8);
   pointer-events: none;
 }
 
 .bouquet-wrapper.bouquet-visible {
-  animation: bouquet-pop 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: bouquet-rise 1.3s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
 
-@keyframes bouquet-pop {
+/* Animazione: le rose escono da terra */
+@keyframes bouquet-rise {
   0% {
     opacity: 0;
-    transform: scale(0.7) translateY(40px) rotateX(20deg);
+    transform: translateY(80px) scale(0.7);
   }
-  60% {
+  40% {
     opacity: 1;
-    transform: scale(1.05) translateY(0) rotateX(0deg);
+    transform: translateY(20px) scale(0.9);
   }
   100% {
     opacity: 1;
-    transform: scale(1) translateY(0) rotateX(0deg);
+    transform: translateY(0) scale(1);
   }
 }
 
 .bouquet-shadow {
   position: absolute;
-  bottom: 18px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
-  width: 150px;
-  height: 26px;
-  background: radial-gradient(
-    circle at 50% 50%,
-    #00000066 0,
-    transparent 70%
-  );
-  filter: blur(6px);
+  width: 170px;
+  height: 30px;
+  background: radial-gradient(circle at 50% 50%, #00000088 0, transparent 70%);
+  filter: blur(8px);
 }
 
 .bouquet {
   position: relative;
   width: 220px;
   height: 260px;
-  transform-style: preserve-3d;
 }
 
-/* STEM / Gambi */
+/* Gambi che “escono” da terra */
 .stem {
   position: absolute;
-  bottom: 38px;
-  left: 50%;
-  width: 9px;
-  height: 138px;
-  transform: translateX(-50%);
-  background: linear-gradient(180deg, #1bbf68 0, #0b7c42 60%, #064326 100%);
+  bottom: 60px; /* allineato alla ground */
+  width: 10px;
   border-radius: 999px;
+  background: linear-gradient(180deg, #30d97f 0, #0f7c43 55%, #053521 100%);
   box-shadow:
-    0 0 8px rgba(0, 0, 0, 0.7),
+    0 0 6px rgba(0, 0, 0, 0.7),
     0 10px 14px rgba(0, 0, 0, 0.7);
+  transform-origin: bottom center;
 }
 
-.stem-back {
-  height: 130px;
-  transform: translateX(-50%) rotateZ(-4deg);
-  opacity: 0.8;
+.stem-main {
+  left: 50%;
+  height: 145px;
+  transform: translateX(-50%) rotate(0deg);
+}
+.stem-left {
+  left: 42%;
+  height: 135px;
+  transform: translateX(-50%) rotate(-8deg);
+}
+.stem-right {
+  left: 58%;
+  height: 135px;
+  transform: translateX(-50%) rotate(8deg);
 }
 
-/* LEAVES */
+/* FOGLIE */
 .leaf {
   position: absolute;
-  width: 46px;
+  width: 52px;
   height: 26px;
-  background: linear-gradient(135deg, #52e28c, #15a155);
+  background: radial-gradient(circle at 10% 10%, #b4ffcf 0, #1dbb63 45%, #0e6b36 100%);
   border-radius: 80% 0 80% 0;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.45);
+  transform-origin: left center;
 }
 
 .leaf::after {
   content: "";
   position: absolute;
   left: 50%;
-  top: 3px;
+  top: 4px;
   width: 2px;
   height: 18px;
   transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.22);
+  background: rgba(0, 0, 0, 0.25);
   border-radius: 999px;
 }
 
-.leaf-left {
+.leaf-main-left {
   left: 46%;
-  top: 150px;
-  transform: translateX(-50%) rotate(-30deg);
-}
-
-.leaf-right {
-  left: 54%;
-  top: 162px;
-  transform: translateX(-50%) rotate(30deg) scaleX(-1);
-}
-
-.leaf-back-left {
-  left: 44%;
   top: 155px;
-  transform: translateX(-50%) rotate(-45deg) scale(0.9);
+  transform: translateX(-100%) rotate(-32deg);
+}
+.leaf-main-right {
+  left: 54%;
+  top: 166px;
+  transform: rotate(32deg) scaleX(-1);
+}
+.leaf-back-left {
+  left: 43%;
+  top: 160px;
+  transform: translateX(-100%) rotate(-45deg) scale(0.9);
   opacity: 0.7;
 }
-
 .leaf-back-right {
-  left: 56%;
-  top: 167px;
-  transform: translateX(-50%) rotate(45deg) scaleX(-1) scale(0.9);
+  left: 57%;
+  top: 172px;
+  transform: rotate(45deg) scaleX(-1) scale(0.9);
   opacity: 0.7;
 }
 
-/* FIORI REALISTICI A PETALI */
+/* FIORI – ESSEMPIO DI ROSA PIÙ REALISTICA A PETALI */
 .flower {
   position: absolute;
-  top: 20px;
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
+  top: 40px;
   transform-origin: center bottom;
   animation: flower-sway 4s ease-in-out infinite alternate;
+}
+
+/* Ondeggiamento delicato */
+@keyframes flower-sway {
+  0% {
+    transform: translateX(-50%) translateY(4px) rotate(-2deg);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0) rotate(3deg);
+  }
 }
 
 .flower--center {
@@ -444,86 +471,96 @@ body {
   animation-delay: 0.4s;
 }
 
-@keyframes flower-sway {
-  from { transform: translateX(-50%) translateY(8px) rotate(-2deg); }
-  to   { transform: translateX(-50%) translateY(4px) rotate(3deg); }
+/* Anelli di petali */
+.petal-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
 }
 
-/* Petali */
 .petal {
   position: absolute;
-  width: 55px;
-  height: 70px;
-  border-radius: 55% 55% 45% 45%;
-  background: radial-gradient(
-    circle at 30% 15%,
-    #ffeef7 0,
-    #ff8aaa 30%,
-    #ff2b5c 70%,
-    #7a041d 100%
-  );
+  width: 54px;
+  height: 76px;
+  border-radius: 70% 70% 55% 55%;
+  background: radial-gradient(circle at 25% 0%, #ffeef7 0, #ff9ab9 35%, #ff2f5f 70%, #6a0218 100%);
   box-shadow:
-    0 4px 10px rgba(0, 0, 0, 0.5),
-    0 0 16px rgba(255, 68, 122, 0.75);
+    0 4px 10px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(255, 68, 122, 0.75);
+  transform-origin: 50% 90%;
 }
 
-.petal-1 {
+/* Petali esterni più grandi */
+.big-petal {
+  top: 22%;
   left: 50%;
-  top: 10%;
-  transform: translateX(-50%) rotate(-20deg);
 }
-.petal-2 {
-  left: 50%;
-  top: 10%;
+.petal-ring-back .big-petal:nth-child(1) {
+  transform: translateX(-50%) rotate(-40deg);
+}
+.petal-ring-back .big-petal:nth-child(2) {
+  transform: translateX(-50%) rotate(-10deg);
+}
+.petal-ring-back .big-petal:nth-child(3) {
   transform: translateX(-50%) rotate(20deg);
 }
-.petal-3 {
-  left: 50%;
-  top: 16%;
-  transform: translateX(-50%) scale(0.9);
-}
-.petal-4 {
-  left: 50%;
-  top: 20%;
-  transform: translateX(-50%) scale(0.8) rotate(10deg);
+.petal-ring-back .big-petal:nth-child(4) {
+  transform: translateX(-50%) rotate(50deg);
 }
 
-.petal-inner {
+/* Petali intermedi leggermente più piccoli */
+.mid-petal {
+  top: 26%;
   left: 50%;
-  top: 24%;
-  width: 45px;
-  height: 55px;
-  transform: translateX(-50%);
-  background: radial-gradient(
-    circle at 30% 10%,
-    #ffeef7 0,
-    #ff94b6 40%,
-    #b50936 90%
-  );
+  width: 46px;
+  height: 66px;
+  background: radial-gradient(circle at 25% 0%, #ffeef7 0, #ffb4c9 40%, #d61646 80%, #5a0216 100%);
+}
+.petal-ring-front .mid-petal:nth-child(1) {
+  transform: translateX(-50%) rotate(-30deg);
+}
+.petal-ring-front .mid-petal:nth-child(2) {
+  transform: translateX(-50%) rotate(-5deg);
+}
+.petal-ring-front .mid-petal:nth-child(3) {
+  transform: translateX(-50%) rotate(20deg);
+}
+.petal-ring-front .mid-petal:nth-child(4) {
+  transform: translateX(-50%) rotate(45deg);
 }
 
-/* Centro del fiore */
-.center {
+/* Nucleo centrale della rosa */
+.petal-core {
   position: absolute;
   left: 50%;
-  top: 40%;
-  width: 32px;
-  height: 32px;
+  top: 36%;
+  width: 44px;
+  height: 44px;
   transform: translateX(-50%);
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 20%, #ffeef7 0, #ffb5c7 35%, #7a041d 100%);
+  background: conic-gradient(from 200deg, #ff5b7f 0 120deg, #ff8aaa 120deg 210deg, #8c0622 210deg 360deg);
   box-shadow:
-    0 0 10px rgba(255, 255, 255, 0.8),
-    0 0 18px rgba(255, 68, 122, 0.7);
+    0 0 10px rgba(0, 0, 0, 0.8),
+    0 0 18px rgba(255, 68, 122, 0.8);
+  overflow: hidden;
 }
 
-/* WRAP */
+.core-glow {
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 20%, #ffeef7 0, #ffb5c7 35%, #7a041d 100%);
+}
+
+/* CARTA DEL BOUQUET */
 .wrap {
   position: absolute;
-  bottom: 0;
+  bottom: 40px; /* allineata alla ground */
   left: 50%;
   transform: translateX(-50%);
-  width: 170px;
+  width: 180px;
   height: 120px;
 }
 
@@ -538,42 +575,32 @@ body {
 
 .wrap-left {
   left: 0;
-  border-radius: 80px 0 20px 80px;
+  border-radius: 80px 0 30px 80px;
   transform-origin: bottom left;
   transform: skewX(-10deg);
-  background: linear-gradient(
-    135deg,
-    #fbe6d9 0,
-    #f0d1c0 45%,
-    #d0b5a3 100%
-  );
+  background: linear-gradient(135deg, #fbe6d9 0, #f0d1c0 45%, #d0b5a3 100%);
 }
 
 .wrap-right {
   right: 0;
-  border-radius: 0 80px 80px 20px;
+  border-radius: 0 80px 80px 30px;
   transform-origin: bottom right;
   transform: skewX(10deg);
-  background: linear-gradient(
-    225deg,
-    #fbe6d9 0,
-    #f0d1c0 45%,
-    #d0b5a3 100%
-  );
+  background: linear-gradient(225deg, #fbe6d9 0, #f0d1c0 45%, #d0b5a3 100%);
 }
 
 .wrap-highlight {
   position: absolute;
-  inset: 0 15px 30px;
+  inset: 0 18px 32px;
   border-radius: 80px;
-  background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.5), transparent 70%);
-  opacity: 0.35;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.55), transparent 75%);
+  opacity: 0.4;
 }
 
-/* Nastro */
+/* NASTRO */
 .ribbon {
   position: absolute;
-  bottom: 32px;
+  bottom: 34px;
   left: 50%;
   transform: translateX(-50%);
   width: 90px;
@@ -588,17 +615,17 @@ body {
 .ribbon-tail {
   position: absolute;
   width: 30px;
-  height: 24px;
+  height: 26px;
   background: linear-gradient(135deg, #ff2144, #ff6b8f);
-  bottom: 16px;
+  bottom: 18px;
   clip-path: polygon(0 0, 100% 0, 50% 100%);
 }
 
 .ribbon-tail-left {
-  left: calc(50% - 40px);
+  left: calc(50% - 42px);
 }
 .ribbon-tail-right {
-  left: calc(50% + 10px);
+  left: calc(50% + 12px);
 }
 
 /* CAPTION */
