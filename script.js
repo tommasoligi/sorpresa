@@ -6,10 +6,9 @@ const yesButton = document.querySelector(".btn--yes");
 const noButton = document.querySelector(".btn--no");
 const catImg = document.querySelector(".cat-img");
 
-// DEVONO coincidere con gli id nell'HTML
 const valentinePage = document.getElementById("valentinePage");
 const rosesPage = document.getElementById("rosesPage");
-const bouquetWrapper = document.getElementById("bouquetWrapper");
+const flowers = document.getElementById("flowers");
 const captionText = document.getElementById("captionText");
 
 const MAX_IMAGES = 5;
@@ -17,7 +16,6 @@ const MAX_IMAGES = 5;
 let play = true;
 let noCount = 0;
 
-// Collega gli eventi solo se i bottoni esistono
 if (yesButton && noButton) {
   yesButton.addEventListener("click", handleYesClick);
 
@@ -39,23 +37,20 @@ if (yesButton && noButton) {
 function handleYesClick() {
   if (!buttonsContainer || !titleElement || !valentinePage || !rosesPage) return;
 
-  // Nasconde i bottoni, cambia testo (in spagnolo)
   buttonsContainer.classList.add("hidden");
   titleElement.innerHTML = "Preparando tu regalo especial...";
 
-  // Piccola attesa prima di cambiare pagina
   setTimeout(() => {
     valentinePage.classList.add("hidden");
     rosesPage.classList.remove("hidden");
 
-    // Appena appare la pagina rose, facciamo ripartire i pacchetti
     setTimeout(() => {
       restartPackets();
 
-      // Dopo il “viaggio” dei pacchetti, compare il bouquet
+      // Dopo il viaggio delle rose, far partire i fiori animati
       setTimeout(() => {
-        showBouquet();
-      }, 7300); // tempo per far finire le animazioni dei pacchetti
+        showFlowers();
+      }, 7300);
     }, 300);
   }, 2000);
 }
@@ -96,18 +91,17 @@ const packets = document.querySelectorAll(".rose-packet");
 function restartPackets() {
   packets.forEach((p) => {
     p.style.animation = "none";
-    // forza reflow per riavviare l’animazione
     void p.offsetHeight;
     p.style.animation = "";
   });
 }
 
-function showBouquet() {
-  if (bouquetWrapper) {
-    bouquetWrapper.classList.add("bouquet-visible");
+function showFlowers() {
+  // Toglie la classe flowers-paused per far partire tutte le animazioni
+  if (flowers) {
+    flowers.classList.remove("flowers-paused");
   }
   if (captionText) {
-    captionText.textContent =
-      "Entregado: ¡tu ramo ha llegado! Te amo ❤️";
+    captionText.textContent = "¡Entregado! Las flores han crecido para ti ❤️";
   }
 }
