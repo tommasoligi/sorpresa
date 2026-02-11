@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,20 +7,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <title>Valentine</title>
+  <title>San Valentín</title>
 </head>
 <body>
-  <!-- SEZIONE VALENTINE -->
+  <!-- SECCIÓN SAN VALENTÍN -->
   <main class="container valentine-page" id="valentinePage">
-    <img class="cat-img" src="img/cat-0.jpg" alt="Picture of a cat" />
-    <p class="title">Will you be my Valentine?</p>
+    <img class="cat-img" src="img/cat-0.jpg" alt="Foto de un gato" />
+    <p class="title">¿Quieres ser mi San Valentín?</p>
     <div class="buttons">
-      <button type="button" class="btn btn--yes">Yes</button>
+      <button type="button" class="btn btn--yes">Sí</button>
       <button type="button" class="btn btn--no">No</button>
     </div>
   </main>
 
-  <!-- SEZIONE ROSES (inizialmente nascosta) -->
+  <!-- SECCIÓN ROSAS (oculta al inicio) -->
   <main class="container roses-page hidden" id="rosesPage">
     <div class="sky">
       <div class="stars"></div>
@@ -32,8 +32,8 @@
 
     <div class="roses-content">
       <header class="header">
-        <h1>🌹 Rose a Distanza 🌹</h1>
-        <p>Per te, dall'Italia a Buenos Aires ❤️</p>
+        <h1>🌹 Rosas a Distancia 🌹</h1>
+        <p>Para ti, desde Italia hasta Buenos Aires ❤️</p>
       </header>
 
       <section class="route">
@@ -56,96 +56,97 @@
         </div>
       </section>
 
-<section class="scene">
-  <div class="ground"></div>
+      <!-- ESCENA DEL RAMO (usa il CSS e JS che hai già modificato) -->
+      <section class="scene">
+        <div class="ground"></div>
 
-  <div class="bouquet-wrapper" id="bouquetWrapper">
-    <div class="bouquet-shadow"></div>
+        <div class="bouquet-wrapper" id="bouquetWrapper">
+          <div class="bouquet-shadow"></div>
 
-    <div class="bouquet">
-      <!-- Gambi principali -->
-      <div class="stem stem-main"></div>
-      <div class="stem stem-left"></div>
-      <div class="stem stem-right"></div>
+          <div class="bouquet">
+            <!-- Tallos principales -->
+            <div class="stem stem-main"></div>
+            <div class="stem stem-left"></div>
+            <div class="stem stem-right"></div>
 
-      <!-- Foglie principali -->
-      <div class="leaf leaf-main-left"></div>
-      <div class="leaf leaf-main-right"></div>
-      <div class="leaf leaf-back-left"></div>
-      <div class="leaf leaf-back-right"></div>
+            <!-- Hojas principales -->
+            <div class="leaf leaf-main-left"></div>
+            <div class="leaf leaf-main-right"></div>
+            <div class="leaf leaf-back-left"></div>
+            <div class="leaf leaf-back-right"></div>
 
-      <!-- Fiore sinistro -->
-      <div class="flower flower--left">
-        <div class="petal-ring petal-ring-back">
-          <div class="petal big-petal"></div>
-          <div class="petal big-petal"></div>
-          <div class="petal big-petal"></div>
-          <div class="petal big-petal"></div>
-        </div>
-        <div class="petal-ring petal-ring-front">
-          <div class="petal mid-petal"></div>
-          <div class="petal mid-petal"></div>
-          <div class="petal mid-petal"></div>
-          <div class="petal mid-petal"></div>
-        </div>
-        <div class="petal-core">
-          <div class="core-glow"></div>
-        </div>
-      </div>
+            <!-- Flor izquierda -->
+            <div class="flower flower--left">
+              <div class="petal-ring petal-ring-back">
+                <div class="petal big-petal"></div>
+                <div class="petal big-petal"></div>
+                <div class="petal big-petal"></div>
+                <div class="petal big-petal"></div>
+              </div>
+              <div class="petal-ring petal-ring-front">
+                <div class="petal mid-petal"></div>
+                <div class="petal mid-petal"></div>
+                <div class="petal mid-petal"></div>
+                <div class="petal mid-petal"></div>
+              </div>
+              <div class="petal-core">
+                <div class="core-glow"></div>
+              </div>
+            </div>
 
-      <!-- Fiore centrale -->
-      <div class="flower flower--center">
-        <div class="petal-ring petal-ring-back">
-          <div class="petal big-petal"></div>
-          <div class="petal big-petal"></div>
-          <div class="petal big-petal"></div>
-          <div class="petal big-petal"></div>
-        </div>
-        <div class="petal-ring petal-ring-front">
-          <div class="petal mid-petal"></div>
-          <div class="petal mid-petal"></div>
-          <div class="petal mid-petal"></div>
-          <div class="petal mid-petal"></div>
-        </div>
-        <div class="petal-core">
-          <div class="core-glow"></div>
-        </div>
-      </div>
+            <!-- Flor central -->
+            <div class="flower flower--center">
+              <div class="petal-ring petal-ring-back">
+                <div class="petal big-petal"></div>
+                <div class="petal big-petal"></div>
+                <div class="petal big-petal"></div>
+                <div class="petal big-petal"></div>
+              </div>
+              <div class="petal-ring petal-ring-front">
+                <div class="petal mid-petal"></div>
+                <div class="petal mid-petal"></div>
+                <div class="petal mid-petal"></div>
+                <div class="petal mid-petal"></div>
+              </div>
+              <div class="petal-core">
+                <div class="core-glow"></div>
+              </div>
+            </div>
 
-      <!-- Fiore destro -->
-      <div class="flower flower--right">
-        <div class="petal-ring petal-ring-back">
-          <div class="petal big-petal"></div>
-          <div class="petal big-petal"></div>
-          <div class="petal big-petal"></div>
-          <div class="petal big-petal"></div>
-        </div>
-        <div class="petal-ring petal-ring-front">
-          <div class="petal mid-petal"></div>
-          <div class="petal mid-petal"></div>
-          <div class="petal mid-petal"></div>
-          <div class="petal mid-petal"></div>
-        </div>
-        <div class="petal-core">
-          <div class="core-glow"></div>
-        </div>
-      </div>
+            <!-- Flor derecha -->
+            <div class="flower flower--right">
+              <div class="petal-ring petal-ring-back">
+                <div class="petal big-petal"></div>
+                <div class="petal big-petal"></div>
+                <div class="petal big-petal"></div>
+                <div class="petal big-petal"></div>
+              </div>
+              <div class="petal-ring petal-ring-front">
+                <div class="petal mid-petal"></div>
+                <div class="petal mid-petal"></div>
+                <div class="petal mid-petal"></div>
+                <div class="petal mid-petal"></div>
+              </div>
+              <div class="petal-core">
+                <div class="core-glow"></div>
+              </div>
+            </div>
 
-      <!-- Carta del bouquet -->
-      <div class="wrap">
-        <div class="wrap-left"></div>
-        <div class="wrap-right"></div>
-        <div class="wrap-highlight"></div>
-        <div class="ribbon"></div>
-        <div class="ribbon-tail ribbon-tail-left"></div>
-        <div class="ribbon-tail ribbon-tail-right"></div>
-      </div>
-    </div>
-  </div>
-</section>
+            <!-- Papel del ramo -->
+            <div class="wrap">
+              <div class="wrap-left"></div>
+              <div class="wrap-right"></div>
+              <div class="wrap-highlight"></div>
+              <div class="ribbon"></div>
+              <div class="ribbon-tail ribbon-tail-left"></div>
+              <div class="ribbon-tail ribbon-tail-right"></div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section class="caption">
-        <p id="captionText">Invio in corso: le rose stanno attraversando l'oceano...</p>
+        <p id="captionText">Envío en curso: las rosas están cruzando el océano...</p>
       </section>
     </div>
   </main>
