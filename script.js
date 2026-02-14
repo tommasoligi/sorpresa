@@ -102,6 +102,6 @@ function showFlowers() {
     flowers.classList.remove("flowers-paused");
   }
   if (captionText) {
-    captionText.textContent = "Entregado! Las rosas han llegado ❤️";
+    captionText.textContent = "Entregado! La sorpresa ha llegado ❤️";
   }
 }
